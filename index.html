@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For The People - By The People</title>
+  <meta name="description" content="Accurate, sourced information combating misinformation about the U.S. Constitution, military oath, continuity of government, and information warfare.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Reading Progress -->
+  <div style="position:fixed;top:0;left:0;height:3px;background:var(--red);z-index:9999;transition:width 0.1s" class="reading-progress"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-top">
+      <a href="index.html" class="site-logo" style="text-decoration:none;color:inherit">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="17" stroke="#c9a94e" stroke-width="2"/><text x="18" y="23" text-anchor="middle" fill="#c9a94e" font-family="serif" font-size="16" font-weight="bold">FTP</text></svg>
+        <div><div class="site-title">For The People</div><div class="site-subtitle">By The People</div></div>
+      </a>
+      <button class="hamburger" aria-label="Toggle navigation">&#9776;</button>
+    </div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="chapter1.html">Ch 1: Constitutional Warfare</a></li>
+        <li><a href="chapter2.html">Ch 2: The Military Oath</a></li>
+        <li class="has-dropdown">
+          <a href="chapter3.html">Ch 3: Info Warfare</a>
+          <ul class="dropdown">
+            <li><a href="chapter3.html">Foreign Information Warfare</a></li>
+            <li><a href="chapter3-psyop.html">Theory Psyop</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="chapter4.html">Ch 4: Devolution</a>
+          <ul class="dropdown">
+            <li><a href="chapter4.html">Devolution Theory</a></li>
+            <li><a href="chapter4-danger.html">The Danger of the Devolution Theory</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="chapter5.html">Ch 5: Executive Orders</a>
+          <ul class="dropdown">
+            <li><a href="chapter5.html">Executive Orders &amp; Law of War</a></li>
+            <li><a href="chapter5-guard.html">The National Guard</a></li>
+            <li><a href="chapter5-secdef.html">The Secretary of Defense</a></li>
+            <li><a href="chapter5-spaceforce.html">U.S. Space Force</a></li>
+            <li><a href="chapter5-goldwater.html">Goldwater-Nichols Act</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="chapter6.html">Ch 6: Continuity</a>
+          <ul class="dropdown">
+            <li><a href="chapter6.html">Continuity Overview</a></li>
+            <li><a href="chapter6-dsca.html">DSCA</a></li>
+            <li><a href="chapter6-fcd1.html">FCD 1</a></li>
+            <li><a href="chapter6-fcd2.html">FCD 2</a></li>
+            <li><a href="chapter6-devolution.html">True Devolution</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown">
+          <a href="chapter7.html">Ch 7: Emergency Mgmt</a>
+          <ul class="dropdown">
+            <li><a href="chapter7.html">National Response Framework</a></li>
+          </ul>
+        </li>
+        <li><a href="chapter8.html">Ch 8: 1871 Act</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay">
+    <div class="search-box">
+      <input type="text" class="search-input" placeholder="Search chapters... (Ctrl+K)">
+      <div class="search-results" id="searchResults"></div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>For The People</h1>
+    <div class="tagline">By The People</div>
+    <div class="hero-divider"></div>
+    <p>
+      Accurate, sourced information to combat the misinformation, disinformation, and malinformation
+      spread via social media. We believe in providing full context and verifiable truth on topics
+      ranging from the Constitution and military oath to continuity of government and information warfare.
+    </p>
+  </section>
+
+  <!-- Main Content -->
+  <main class="content-wrap">
+
+    <h2>Table of Contents</h2>
+    <p>Each chapter builds upon the previous, establishing context from the Constitution through current government operations. Click any chapter to begin reading.</p>
+
+    <div class="toc">
+
+      <a href="chapter1.html" class="toc-item">
+        <span class="toc-num">1</span>
+        <div>
+          <div class="toc-title">Constitutional Warfare</div>
+          <div class="toc-desc">The Constitution as the foundation of governance and the ongoing efforts to defend it</div>
+        </div>
+      </a>
+
+      <a href="chapter2.html" class="toc-item">
+        <span class="toc-num">2</span>
+        <div>
+          <div class="toc-title">The Military Oath</div>
+          <div class="toc-desc">Why the oath of enlistment binds service members to defend the Constitution above all</div>
+        </div>
+      </a>
+
+      <a href="chapter3.html" class="toc-item">
+        <span class="toc-num">3</span>
+        <div>
+          <div class="toc-title">Foreign Information Warfare</div>
+          <div class="toc-desc">How adversary nations use digital platforms to undermine American democracy</div>
+        </div>
+      </a>
+
+      <a href="chapter4.html" class="toc-item">
+        <span class="toc-num">4</span>
+        <div>
+          <div class="toc-title">Devolution Theory</div>
+          <div class="toc-desc">Examining and debunking the claims of the devolution theory with facts and evidence</div>
+        </div>
+      </a>
+
+      <a href="chapter5.html" class="toc-item">
+        <span class="toc-num">5</span>
+        <div>
+          <div class="toc-title">Executive Orders &amp; The Law of War</div>
+          <div class="toc-desc">Understanding executive authority, the National Guard, Space Force, and defense reorganization</div>
+        </div>
+      </a>
+
+      <a href="chapter6.html" class="toc-item">
+        <span class="toc-num">6</span>
+        <div>
+          <div class="toc-title">Continuity of Government</div>
+          <div class="toc-desc">DSCA, Federal Continuity Directives, and what real devolution planning actually looks like</div>
+        </div>
+      </a>
+
+      <a href="chapter7.html" class="toc-item">
+        <span class="toc-num">7</span>
+        <div>
+          <div class="toc-title">National Response Framework &amp; Emergency Management</div>
+          <div class="toc-desc">How the government actually responds to national emergencies and disasters</div>
+        </div>
+      </a>
+
+      <a href="chapter8.html" class="toc-item">
+        <span class="toc-num">8</span>
+        <div>
+          <div class="toc-title">The 1871 Act &amp; Sovereign Citizen Theory</div>
+          <div class="toc-desc">Debunking the conspiracy theory that the 1871 Act turned the U.S. into a corporation</div>
+        </div>
+      </a>
+
+      <a href="faq.html" class="toc-item">
+        <span class="toc-num">?</span>
+        <div>
+          <div class="toc-title">Frequently Asked Questions</div>
+          <div class="toc-desc">Common questions and clear answers about the topics covered</div>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="key-point">
+      We have read thousands of posts, Telegram messages, Twitter threads, and Facebook posts. We highlight individuals throughout the chapters, yet we focus deliberately on the information itself and aim to provide the full context and verifiable truth associated with each topic. This is not clickbait. Every claim is sourced.
+    </div>
+
+    <h2>Constitution of the United States</h2>
+    <p>The foundation of everything discussed on this site. Read the full text at the U.S. Senate's official archive:</p>
+    <a href="https://www.senate.gov/about/origins-foundations/senate-and-constitution/constitution.htm" target="_blank" rel="noopener" class="doc-link">
+      <span class="icon">&#128220;</span>
+      <div>
+        <div class="name">Read the U.S. Constitution</div>
+        <div class="type">U.S. Senate &mdash; senate.gov</div>
+      </div>
+    </a>
+
+    <h2>Contact</h2>
+    <p>Questions or feedback? Reach us at <a href="mailto:lookoutlambe@gmail.com">lookoutlambe@gmail.com</a></p>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="chapter1.html">Chapter 1</a>
+        <a href="chapter2.html">Chapter 2</a>
+        <a href="chapter3.html">Chapter 3</a>
+        <a href="chapter4.html">Chapter 4</a>
+        <a href="chapter5.html">Chapter 5</a>
+        <a href="chapter6.html">Chapter 6</a>
+        <a href="chapter7.html">Chapter 7</a>
+        <a href="chapter8.html">Chapter 8</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+      <div class="footer-contact">
+        Contact: <a href="mailto:lookoutlambe@gmail.com">lookoutlambe@gmail.com</a>
+      </div>
+      <div class="footer-copy">
+        For The People &mdash; By The People. All information sourced from official government documents and public records.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
