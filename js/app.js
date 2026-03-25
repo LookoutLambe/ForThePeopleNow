@@ -92,6 +92,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ---- Back button (browser history) ----
+  if (window.location.pathname !== '/' && !window.location.pathname.endsWith('index.html')) {
+    const backBtn = document.createElement('button');
+    backBtn.className = 'back-button';
+    backBtn.innerHTML = '&#9664;';
+    backBtn.title = 'Go back';
+    backBtn.style.cssText = `
+      position: fixed; bottom: 2rem; left: 2rem; width: 44px; height: 44px;
+      background: var(--navy); color: white; border: none; border-radius: 50%;
+      font-size: 1.1rem; cursor: pointer; opacity: 1; transition: opacity 0.3s;
+      z-index: 999; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    `;
+    document.body.appendChild(backBtn);
+    backBtn.addEventListener('click', () => {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = 'index.html';
+      }
+    });
+  }
+
   // ---- Back to top ----
   const topBtn = document.createElement('button');
   topBtn.className = 'back-to-top';
