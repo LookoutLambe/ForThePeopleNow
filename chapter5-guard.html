@@ -182,7 +182,17 @@
       <div class="footer-copy">For The People &mdash; By The People. All information sourced from official government documents and public records.</div>
     </div>
   </footer>
-  <script src="js/app.js"></script>
+  <script>
+// Force clear all old caches and re-register service worker
+if('serviceWorker' in navigator) {
+  caches.keys().then(names => names.forEach(n => caches.delete(n)));
+  navigator.serviceWorker.getRegistrations().then(regs => {
+    regs.forEach(r => r.unregister());
+    setTimeout(() => navigator.serviceWorker.register('service-worker.js'), 1000);
+  });
+}
+</script>
+<script src="js/app.js"></script>
   <script>if('serviceWorker' in navigator) navigator.serviceWorker.register('service-worker.js');</script>
 </body>
 </html>
