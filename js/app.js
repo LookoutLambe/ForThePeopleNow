@@ -131,11 +131,16 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---- Reading progress bar ----
   const progress = document.querySelector('.reading-progress');
   if (progress) {
+    const pctLabel = document.createElement('span');
+    pctLabel.className = 'progress-pct';
+    document.body.appendChild(pctLabel);
     window.addEventListener('scroll', () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
       progress.style.width = pct + '%';
+      pctLabel.textContent = Math.round(pct) + '%';
+      pctLabel.style.opacity = scrollTop > 100 ? '1' : '0';
     });
   }
 
@@ -181,6 +186,67 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', () => {
     topBtn.style.opacity = window.scrollY > 400 ? '1' : '0';
     topBtn.style.pointerEvents = window.scrollY > 400 ? 'auto' : 'none';
+  });
+
+  // ---- Reading time estimate ----
+  const articleContent = document.querySelector('.article-content');
+  const chapterHero = document.querySelector('.chapter-hero');
+  if (articleContent && chapterHero) {
+    const text = articleContent.innerText || articleContent.textContent;
+    const wordCount = text.trim().split(/\s+/).length;
+    const readingTime = Math.ceil(wordCount / 200); // 200 wpm average
+    const readTimeEl = document.createElement('div');
+    readTimeEl.className = 'reading-time';
+    readTimeEl.innerHTML = `&#128337; ${readingTime} min read &middot; ${wordCount.toLocaleString()} words`;
+    chapterHero.appendChild(readTimeEl);
+  }
+
+  // ---- Dark mode toggle ----
+  const savedTheme = localStorage.getItem('ftp-theme');
+  if (savedTheme === 'dark') document.body.classList.add('dark-mode');
+
+  const darkToggle = document.createElement('button');
+  darkToggle.className = 'dark-toggle';
+  darkToggle.innerHTML = document.body.classList.contains('dark-mode') ? '&#9788;' : '&#9790;';
+  darkToggle.title = 'Toggle dark mode';
+  darkToggle.setAttribute('aria-label', 'Toggle dark mode');
+  document.body.appendChild(darkToggle);
+
+  darkToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    darkToggle.innerHTML = isDark ? '&#9788;' : '&#9790;';
+    localStorage.setItem('ftp-theme', isDark ? 'dark' : 'light');
+  });
+
+  // ---- Font size controls ----
+  const savedSize = localStorage.getItem('ftp-fontsize');
+  if (savedSize) document.documentElement.style.fontSize = savedSize;
+
+  const fontControls = document.createElement('div');
+  fontControls.className = 'font-controls';
+  fontControls.innerHTML = `
+    <button class="font-btn font-decrease" title="Decrease font size" aria-label="Decrease font size">A-</button>
+    <button class="font-btn font-reset" title="Reset font size" aria-label="Reset font size">A</button>
+    <button class="font-btn font-increase" title="Increase font size" aria-label="Increase font size">A+</button>
+  `;
+  document.body.appendChild(fontControls);
+
+  const currentSize = () => parseFloat(getComputedStyle(document.documentElement).fontSize);
+
+  fontControls.querySelector('.font-decrease').addEventListener('click', () => {
+    const size = Math.max(12, currentSize() - 2);
+    document.documentElement.style.fontSize = size + 'px';
+    localStorage.setItem('ftp-fontsize', size + 'px');
+  });
+  fontControls.querySelector('.font-increase').addEventListener('click', () => {
+    const size = Math.min(24, currentSize() + 2);
+    document.documentElement.style.fontSize = size + 'px';
+    localStorage.setItem('ftp-fontsize', size + 'px');
+  });
+  fontControls.querySelector('.font-reset').addEventListener('click', () => {
+    document.documentElement.style.fontSize = '16px';
+    localStorage.removeItem('ftp-fontsize');
   });
 
 });
