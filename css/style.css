@@ -697,10 +697,11 @@ body.dark-mode .compare-table::after {
   background: linear-gradient(transparent, #0f1a2e 40%);
   color: #8a8a8a;
 }
-.compare-table::-webkit-scrollbar { width: 8px; }
-.compare-table::-webkit-scrollbar-track { background: var(--off-white); border-radius: 4px; }
-.compare-table::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
-.compare-table::-webkit-scrollbar-thumb:hover { background: var(--navy-light); }
+.compare-table::-webkit-scrollbar { width: 12px; }
+.compare-table::-webkit-scrollbar-track { background: #d4d0c8; border-left: 2px solid var(--gold); }
+.compare-table::-webkit-scrollbar-thumb { background: var(--navy); border-radius: 6px; border: 2px solid #d4d0c8; min-height: 40px; }
+.compare-table::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+.compare-table { scrollbar-width: auto; scrollbar-color: var(--navy) #d4d0c8; }
 
 .compare-table th {
   background: var(--navy);
@@ -1117,10 +1118,11 @@ body.dark-mode .stat-label { color: #e0dcd0; }
 body.dark-mode blockquote { background: #1a2236; border-color: var(--gold); color: #e8e0c8; }
 
 body.dark-mode table { border-color: #3a5080; }
-body.dark-mode .compare-table { border-color: #3a5080; }
-body.dark-mode .compare-table::-webkit-scrollbar { width: 8px; }
-body.dark-mode .compare-table::-webkit-scrollbar-track { background: #0f1a2e; }
-body.dark-mode .compare-table::-webkit-scrollbar-thumb { background: #3a5080; border-radius: 4px; }
+body.dark-mode .compare-table { border-color: #3a5080; scrollbar-color: var(--gold) #1a2236; }
+body.dark-mode .compare-table::-webkit-scrollbar { width: 12px; }
+body.dark-mode .compare-table::-webkit-scrollbar-track { background: #1a2236; border-left: 2px solid var(--gold); }
+body.dark-mode .compare-table::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 6px; border: 2px solid #1a2236; }
+body.dark-mode .compare-table::-webkit-scrollbar-thumb:hover { background: var(--gold-light); }
 body.dark-mode th { background: #0a1020; color: var(--gold); }
 body.dark-mode td { border-color: #3a5080; background: #1a2236; color: #f0ede5; }
 body.dark-mode tr:nth-child(even) td { background: #15202f; }
