@@ -1,11 +1,11 @@
-const CACHE_NAME = 'ftp-v3';
+const CACHE_NAME = 'ftp-v7';
 const PAGES = [
   './', 'index.html',
   'chapter1.html', 'chapter2.html', 'chapter3.html',
   'chapter4.html', 'chapter4-danger.html',
   'chapter5.html', 'chapter5-guard.html', 'chapter5-spaceforce.html',
   'chapter6.html', 'chapter6-dsca.html', 'chapter6-fcd1.html', 'chapter6-devolution.html',
-  'chapter7.html', 'chapter8.html', 'chapter9.html', 'chapter10.html',
+  'chapter7.html', 'chapter8.html', 'chapter9.html', 'chapter10.html', 'chapter11.html',
   'faq.html', 'glossary.html', 'about.html',
   'css/style.css', 'js/app.js', 'manifest.json'
 ];

@@ -415,7 +415,7 @@ if('serviceWorker' in navigator) {
   caches.keys().then(names => names.forEach(n => caches.delete(n)));
   navigator.serviceWorker.getRegistrations().then(regs => {
     regs.forEach(r => r.unregister());
-    setTimeout(() => navigator.serviceWorker.register('service-worker.js'), 1000);
+    setTimeout(() => navigator.serviceWorker.register('service-worker.js?v=7'), 1000);
   });
 }
 </script>
