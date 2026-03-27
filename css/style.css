@@ -1081,7 +1081,8 @@ body.dark-mode .info-card { background: #1a2236; border-color: #3a5080; color: #
 body.dark-mode .info-card p { color: #d8d4cc; }
 body.dark-mode .info-card h4 { color: #e8d9a0; }
 body.dark-mode .stat-box { background: #1a2236; border-color: #3a5080; }
-body.dark-mode .stat-label { color: #c8c4bc; }
+body.dark-mode .stat-num { color: #ffffff; }
+body.dark-mode .stat-label { color: #e0dcd0; }
 body.dark-mode blockquote { background: #1a2236; border-color: var(--gold); color: #e8e0c8; }
 
 body.dark-mode table { border-color: #3a5080; }
