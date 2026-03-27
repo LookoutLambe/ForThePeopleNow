@@ -144,48 +144,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---- Back button (browser history) ----
-  if (window.location.pathname !== '/' && !window.location.pathname.endsWith('index.html')) {
-    const backBtn = document.createElement('button');
-    backBtn.className = 'back-button';
-    backBtn.innerHTML = '&#9664;';
-    backBtn.title = 'Go back';
-    backBtn.style.cssText = `
-      position: fixed; bottom: 2rem; left: 2rem; width: 44px; height: 44px;
-      background: var(--navy); color: white; border: none; border-radius: 50%;
-      font-size: 1.1rem; cursor: pointer; opacity: 1; transition: opacity 0.3s;
-      z-index: 999; display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    `;
-    document.body.appendChild(backBtn);
-    backBtn.addEventListener('click', () => {
-      if (window.history.length > 1) {
-        window.history.back();
-      } else {
-        window.location.href = 'index.html';
-      }
+  // ---- Solid bottom toolbar ----
+  const toolbar = document.createElement('div');
+  toolbar.className = 'bottom-toolbar';
+
+  const isSubpage = window.location.pathname !== '/' && !window.location.pathname.endsWith('index.html');
+
+  toolbar.innerHTML = `
+    ${isSubpage ? '<button class="tb-btn tb-back" title="Go back">&#9664;</button>' : ''}
+    <button class="tb-btn tb-font-down" title="Decrease font">A-</button>
+    <button class="tb-btn tb-font-reset" title="Reset font">A</button>
+    <button class="tb-btn tb-font-up" title="Increase font">A+</button>
+    <button class="tb-btn tb-dark" title="Toggle dark mode">&#9789;</button>
+    <button class="tb-btn tb-top" title="Back to top">&#9650;</button>
+  `;
+  document.body.appendChild(toolbar);
+
+  // Back button
+  const tbBack = toolbar.querySelector('.tb-back');
+  if (tbBack) {
+    tbBack.addEventListener('click', () => {
+      if (window.history.length > 1) window.history.back();
+      else window.location.href = 'index.html';
     });
   }
 
-  // ---- Back to top ----
-  const topBtn = document.createElement('button');
-  topBtn.className = 'back-to-top';
-  topBtn.innerHTML = '&#9650;';
-  topBtn.title = 'Back to top';
-  topBtn.style.cssText = `
-    position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px;
-    background: var(--navy); color: white; border: none; border-radius: 50%;
-    font-size: 1.1rem; cursor: pointer; opacity: 0; transition: opacity 0.3s;
-    z-index: 999; display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-  `;
-  document.body.appendChild(topBtn);
-
-  topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-  window.addEventListener('scroll', () => {
-    topBtn.style.opacity = window.scrollY > 400 ? '1' : '0';
-    topBtn.style.pointerEvents = window.scrollY > 400 ? 'auto' : 'none';
+  // Back to top
+  toolbar.querySelector('.tb-top').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
   // ---- Reading time estimate ----
@@ -205,46 +191,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const savedTheme = localStorage.getItem('ftp-theme');
   if (savedTheme === 'dark') document.body.classList.add('dark-mode');
 
-  const darkToggle = document.createElement('button');
-  darkToggle.className = 'dark-toggle';
-  darkToggle.innerHTML = document.body.classList.contains('dark-mode') ? '&#9788;' : '&#9790;';
-  darkToggle.title = 'Toggle dark mode';
-  darkToggle.setAttribute('aria-label', 'Toggle dark mode');
-  document.body.appendChild(darkToggle);
-
-  darkToggle.addEventListener('click', () => {
+  // ---- Dark mode via toolbar ----
+  const tbDark = toolbar.querySelector('.tb-dark');
+  tbDark.innerHTML = document.body.classList.contains('dark-mode') ? '&#9788;' : '&#9790;';
+  tbDark.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
     const isDark = document.body.classList.contains('dark-mode');
-    darkToggle.innerHTML = isDark ? '&#9788;' : '&#9790;';
+    tbDark.innerHTML = isDark ? '&#9788;' : '&#9790;';
     localStorage.setItem('ftp-theme', isDark ? 'dark' : 'light');
   });
 
-  // ---- Font size controls ----
+  // ---- Font size via toolbar ----
   const savedSize = localStorage.getItem('ftp-fontsize');
   if (savedSize) document.documentElement.style.fontSize = savedSize;
 
-  const fontControls = document.createElement('div');
-  fontControls.className = 'font-controls';
-  fontControls.innerHTML = `
-    <button class="font-btn font-decrease" title="Decrease font size" aria-label="Decrease font size">A-</button>
-    <button class="font-btn font-reset" title="Reset font size" aria-label="Reset font size">A</button>
-    <button class="font-btn font-increase" title="Increase font size" aria-label="Increase font size">A+</button>
-  `;
-  document.body.appendChild(fontControls);
-
   const currentSize = () => parseFloat(getComputedStyle(document.documentElement).fontSize);
 
-  fontControls.querySelector('.font-decrease').addEventListener('click', () => {
+  toolbar.querySelector('.tb-font-down').addEventListener('click', () => {
     const size = Math.max(12, currentSize() - 2);
     document.documentElement.style.fontSize = size + 'px';
     localStorage.setItem('ftp-fontsize', size + 'px');
   });
-  fontControls.querySelector('.font-increase').addEventListener('click', () => {
+  toolbar.querySelector('.tb-font-up').addEventListener('click', () => {
     const size = Math.min(24, currentSize() + 2);
     document.documentElement.style.fontSize = size + 'px';
     localStorage.setItem('ftp-fontsize', size + 'px');
   });
-  fontControls.querySelector('.font-reset').addEventListener('click', () => {
+  toolbar.querySelector('.tb-font-reset').addEventListener('click', () => {
     document.documentElement.style.fontSize = '16px';
     localStorage.removeItem('ftp-fontsize');
   });
