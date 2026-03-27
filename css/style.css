@@ -315,6 +315,8 @@ li { margin-bottom: 0.4rem; text-align: justify; text-justify: inter-word; }
   border-radius: var(--radius);
   padding: 1.5rem;
   margin: 1.5rem 0;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .key-point::before {
@@ -721,9 +723,11 @@ li { margin-bottom: 0.4rem; text-align: justify; text-justify: inter-word; }
   margin: 1.5rem 0;
 }
 
-.claim-box, .fact-box {
+.claim-box, .fact-box, .reality-box {
   padding: 1.25rem;
   border-radius: var(--radius);
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .claim-box {
@@ -832,6 +836,8 @@ li { margin-bottom: 0.4rem; text-align: justify; text-justify: inter-word; }
   padding: 1.25rem 1.5rem;
   border-radius: var(--radius);
   margin: 1.5rem 0;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .alert-box::before {

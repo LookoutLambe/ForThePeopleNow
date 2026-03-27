@@ -249,4 +249,32 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.removeItem('ftp-fontsize');
   });
 
+  // ---- Swipe gesture for next/previous chapter ----
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const swipeThreshold = 80;
+
+  document.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  document.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) < swipeThreshold) return;
+
+    const navLinks = document.querySelectorAll('.chapter-nav a');
+    if (navLinks.length === 0) return;
+
+    if (diff > 0) {
+      // Swipe left = next chapter
+      const next = document.querySelector('.chapter-nav .next') || navLinks[navLinks.length - 1];
+      if (next && next.href) window.location.href = next.href;
+    } else {
+      // Swipe right = previous chapter
+      const prev = navLinks[0];
+      if (prev && prev.href && !prev.classList.contains('next')) window.location.href = prev.href;
+    }
+  }, { passive: true });
+
 });
