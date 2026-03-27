@@ -57,6 +57,8 @@ blockquote {
   background: rgba(201,169,78,0.06);
   font-style: italic;
   color: var(--text-light);
+  text-align: justify;
+  text-justify: inter-word;
 }
 ul, ol { margin: 0.75rem 0 1.25rem 1.5rem; }
 li { margin-bottom: 0.4rem; text-align: justify; text-justify: inter-word; }
@@ -271,6 +273,8 @@ li { margin-bottom: 0.4rem; text-align: justify; text-justify: inter-word; }
   padding: 1.25rem 1.5rem;
   border-radius: var(--radius);
   margin: 2rem 0;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .source-box h4 {
@@ -613,6 +617,8 @@ li { margin-bottom: 0.4rem; text-align: justify; text-justify: inter-word; }
   color: var(--text-light);
   font-size: 0.9rem;
   line-height: 1.7;
+  text-align: justify;
+  text-justify: inter-word;
 }
 .faq-item.open .faq-answer { display: block; }
 
