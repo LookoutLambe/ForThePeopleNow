@@ -224,22 +224,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ---- Swipe gesture for next/previous chapter ----
   let touchStartX = 0;
+  let touchStartY = 0;
   let touchEndX = 0;
-  const swipeThreshold = 80;
+  let touchEndY = 0;
+  const swipeThreshold = 120;
 
   document.addEventListener('touchstart', e => {
     touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
   }, { passive: true });
 
   document.addEventListener('touchend', e => {
     touchEndX = e.changedTouches[0].screenX;
-    const diff = touchStartX - touchEndX;
-    if (Math.abs(diff) < swipeThreshold) return;
+    touchEndY = e.changedTouches[0].screenY;
+    const diffX = touchStartX - touchEndX;
+    const diffY = Math.abs(touchStartY - touchEndY);
+    // Only swipe if horizontal movement is large AND vertical is small (not scrolling or selecting)
+    if (Math.abs(diffX) < swipeThreshold || diffY > 50) return;
+    // Don't swipe if user has text selected
+    if (window.getSelection && window.getSelection().toString().length > 0) return;
 
     const navLinks = document.querySelectorAll('.chapter-nav a');
     if (navLinks.length === 0) return;
 
-    if (diff > 0) {
+    if (diffX > 0) {
       // Swipe left = next chapter
       const next = document.querySelector('.chapter-nav .next') || navLinks[navLinks.length - 1];
       if (next && next.href) window.location.href = next.href;
