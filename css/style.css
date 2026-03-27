@@ -410,6 +410,7 @@ li { margin-bottom: 0.4rem; text-align: justify; text-justify: inter-word; }
 /* ============ CHAPTER NAV (prev/next) ============ */
 .chapter-nav {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   gap: 1rem;
   margin-top: 3rem;
@@ -516,9 +517,9 @@ li { margin-bottom: 0.4rem; text-align: justify; text-justify: inter-word; }
   h1 { font-size: 1.8rem; }
   h2 { font-size: 1.4rem; }
 
-  .chapter-nav { flex-direction: column; }
-  .chapter-nav a { min-width: unset; }
-  .chapter-nav .next { text-align: left; }
+  .chapter-nav { flex-direction: row; }
+  .chapter-nav a { min-width: unset; flex: 1; }
+  .chapter-nav .next { text-align: right; }
 }
 
 @media (max-width: 480px) {
