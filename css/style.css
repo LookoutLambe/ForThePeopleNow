@@ -663,11 +663,26 @@ li { margin-bottom: 0.4rem; text-align: justify; text-justify: inter-word; }
 
 /* Comparison Table */
 .compare-table {
+  max-height: 500px;
+  overflow-y: auto;
+  margin: 1.5rem 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.compare-table table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.5rem 0;
   font-size: 0.9rem;
 }
+.compare-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+.compare-table::-webkit-scrollbar { width: 8px; }
+.compare-table::-webkit-scrollbar-track { background: var(--off-white); border-radius: 4px; }
+.compare-table::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+.compare-table::-webkit-scrollbar-thumb:hover { background: var(--navy-light); }
 
 .compare-table th {
   background: var(--navy);
@@ -1093,6 +1108,10 @@ body.dark-mode .stat-label { color: #e0dcd0; }
 body.dark-mode blockquote { background: #1a2236; border-color: var(--gold); color: #e8e0c8; }
 
 body.dark-mode table { border-color: #3a5080; }
+body.dark-mode .compare-table { border-color: #3a5080; }
+body.dark-mode .compare-table::-webkit-scrollbar { width: 8px; }
+body.dark-mode .compare-table::-webkit-scrollbar-track { background: #0f1a2e; }
+body.dark-mode .compare-table::-webkit-scrollbar-thumb { background: #3a5080; border-radius: 4px; }
 body.dark-mode th { background: #0a1020; color: var(--gold); }
 body.dark-mode td { border-color: #3a5080; background: #1a2236; color: #f0ede5; }
 body.dark-mode tr:nth-child(even) td { background: #15202f; }
