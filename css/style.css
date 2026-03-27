@@ -322,6 +322,8 @@ li { margin-bottom: 0.4rem; text-align: justify; text-justify: inter-word; }
   margin: 1.5rem 0;
   text-align: justify;
   text-justify: inter-word;
+  -webkit-user-select: text;
+  user-select: text;
 }
 
 .key-point::before {
@@ -878,6 +880,8 @@ body.dark-mode .compare-table::after {
   margin: 1.5rem 0;
   text-align: justify;
   text-justify: inter-word;
+  -webkit-user-select: text;
+  user-select: text;
 }
 
 .alert-box::before {
