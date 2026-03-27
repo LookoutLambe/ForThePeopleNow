@@ -713,7 +713,7 @@ li { margin-bottom: 0.4rem; text-align: justify; text-justify: inter-word; }
 
 .info-card .card-icon { font-size: 2rem; margin-bottom: 0.75rem; }
 .info-card h4 { margin: 0 0 0.5rem; color: var(--navy); font-size: 0.95rem; }
-.info-card p { margin: 0; font-size: 0.85rem; color: var(--text-light); line-height: 1.6; }
+.info-card p { margin: 0; font-size: 0.85rem; color: var(--text-light); line-height: 1.6; text-align: justify; text-justify: inter-word; }
 
 /* Fact vs Fiction boxes */
 .fact-check {
