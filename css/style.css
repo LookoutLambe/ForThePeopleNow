@@ -37,7 +37,7 @@ body {
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-bottom: 100px;
+  padding-bottom: 96px;
   text-rendering: optimizeLegibility;
 }
 
@@ -463,7 +463,7 @@ li { margin-bottom: 0.4rem; text-align: justify; text-justify: inter-word; }
 /* Share buttons - fixed floating bar */
 .share-bar {
   position: fixed;
-  bottom: 56px;
+  bottom: 48px;
   left: 0;
   right: 0;
   display: flex;

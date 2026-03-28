@@ -225,8 +225,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Swipe navigation removed - was blocking text selection on mobile
 
   // ---- Share buttons (fixed floating bar) ----
-  const articleContent = document.querySelector('.article-content');
-  if (articleContent) {
+  const shareTarget = document.querySelector('.article-content') || document.querySelector('main');
+  if (shareTarget) {
     const url = encodeURIComponent(window.location.href);
     const title = encodeURIComponent(document.title);
     const shareBar = document.createElement('div');
