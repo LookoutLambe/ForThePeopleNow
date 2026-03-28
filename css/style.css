@@ -286,12 +286,10 @@ li { margin-bottom: 0.4rem; text-align: justify; text-justify: inter-word; }
   margin-bottom: 0.75rem;
 }
 
-.source-box a { color: #8bc4f6; }
 .source-box ul { margin: 0; padding-left: 1rem; }
-.source-box li { color: #e0dcd0; }
-.source-box li { font-size: 0.85rem; color: var(--text-light); margin-bottom: 0.5rem; }
-.source-box a { color: var(--navy-light); text-decoration: underline; }
-.source-box a:hover { color: var(--red); }
+.source-box li { font-size: 0.85rem; color: #e0dcd0; margin-bottom: 0.5rem; }
+.source-box a { color: #8bc4f6; text-decoration: underline; }
+.source-box a:hover { color: #f0d060; }
 
 /* Document links */
 .doc-link {
