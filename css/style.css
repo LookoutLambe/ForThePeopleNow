@@ -267,9 +267,10 @@ li { margin-bottom: 0.4rem; text-align: justify; text-justify: inter-word; }
 
 /* Source citations */
 .source-box {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-left: 4px solid var(--navy);
+  background: linear-gradient(135deg, #1a2f5a, #1e3a6a);
+  border: 2px solid var(--gold);
+  border-left: 4px solid var(--gold);
+  color: #f0ede5;
   padding: 1.25rem 1.5rem;
   border-radius: var(--radius);
   margin: 2rem 0;
@@ -281,11 +282,13 @@ li { margin-bottom: 0.4rem; text-align: justify; text-justify: inter-word; }
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--navy);
+  color: #f0d060;
   margin-bottom: 0.75rem;
 }
 
+.source-box a { color: #8bc4f6; }
 .source-box ul { margin: 0; padding-left: 1rem; }
+.source-box li { color: #e0dcd0; }
 .source-box li { font-size: 0.85rem; color: var(--text-light); margin-bottom: 0.5rem; }
 .source-box a { color: var(--navy-light); text-decoration: underline; }
 .source-box a:hover { color: var(--red); }
@@ -315,8 +318,9 @@ li { margin-bottom: 0.4rem; text-align: justify; text-justify: inter-word; }
 
 /* Key Point callout */
 .key-point {
-  background: linear-gradient(135deg, rgba(26,39,68,0.04), rgba(178,34,52,0.04));
-  border: 1px solid rgba(26,39,68,0.1);
+  background: linear-gradient(135deg, #1e3a6a, #2a4a7a);
+  border: 2px solid var(--gold);
+  color: #f0ede5;
   border-radius: var(--radius);
   padding: 1.5rem;
   margin: 1.5rem 0;
@@ -326,13 +330,15 @@ li { margin-bottom: 0.4rem; text-align: justify; text-justify: inter-word; }
   user-select: text;
 }
 
+.key-point strong { color: #ffffff; }
+.key-point a { color: #8bc4f6; }
 .key-point::before {
   content: 'KEY POINT';
   display: block;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 2px;
-  color: var(--red);
+  color: #f0d060;
   margin-bottom: 0.5rem;
 }
 
@@ -744,18 +750,21 @@ body.dark-mode .compare-table::after {
 }
 
 .info-card {
-  background: var(--white);
-  border: 1px solid var(--border);
+  background: linear-gradient(135deg, #1e3a6a, #2a4a7a);
+  border: 2px solid var(--gold);
   border-radius: var(--radius);
   padding: 1.25rem;
   transition: all var(--transition);
+  color: #f0ede5;
 }
 
-.info-card:hover { border-color: var(--gold); box-shadow: var(--shadow); }
+.info-card:hover { border-color: var(--gold-light); box-shadow: 0 4px 16px rgba(0,0,0,0.3); }
 
 .info-card .card-icon { font-size: 2rem; margin-bottom: 0.75rem; }
-.info-card h4 { margin: 0 0 0.5rem; color: var(--navy); font-size: 0.95rem; }
-.info-card p { margin: 0; font-size: 0.85rem; color: var(--text-light); line-height: 1.6; text-align: justify; text-justify: inter-word; }
+.info-card h4 { margin: 0 0 0.5rem; color: #f0d060; font-size: 0.95rem; }
+.info-card p { margin: 0; font-size: 0.85rem; color: #e0dcd0; line-height: 1.6; text-align: justify; text-justify: inter-word; }
+.info-card a { color: #8bc4f6; }
+.info-card strong { color: #ffffff; }
 
 /* Fact vs Fiction boxes */
 .fact-check {
@@ -849,16 +858,17 @@ body.dark-mode .compare-table::after {
 .stat-box {
   text-align: center;
   padding: 1.25rem;
-  background: var(--white);
-  border: 1px solid var(--border);
+  background: linear-gradient(135deg, #1e3a6a, #2a4a7a);
+  border: 2px solid var(--gold);
   border-radius: var(--radius);
+  color: #f0ede5;
 }
 
 .stat-num {
   font-family: var(--font-serif);
   font-size: 2rem;
   font-weight: 700;
-  color: var(--navy);
+  color: #f0d060;
   line-height: 1;
 }
 
@@ -872,9 +882,10 @@ body.dark-mode .compare-table::after {
 
 /* Warning/Alert box */
 .alert-box {
-  background: rgba(178,34,52,0.06);
-  border: 1px solid rgba(178,34,52,0.2);
-  border-left: 4px solid var(--red);
+  background: linear-gradient(135deg, #7a2030, #9a1520);
+  border: 2px solid var(--gold);
+  border-left: 4px solid var(--gold);
+  color: #f0ede5;
   padding: 1.25rem 1.5rem;
   border-radius: var(--radius);
   margin: 1.5rem 0;
@@ -884,13 +895,15 @@ body.dark-mode .compare-table::after {
   user-select: text;
 }
 
+.alert-box strong { color: #ffffff; }
+.alert-box a { color: #8bc4f6; }
 .alert-box::before {
   content: 'IMPORTANT';
   display: block;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 2px;
-  color: var(--red);
+  color: #f0d060;
   margin-bottom: 0.5rem;
 }
 
