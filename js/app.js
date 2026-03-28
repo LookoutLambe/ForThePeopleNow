@@ -224,4 +224,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Swipe navigation removed - was blocking text selection on mobile
 
+  // ---- Share buttons ----
+  const chapterNav = document.querySelector('.chapter-nav');
+  if (chapterNav) {
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.title);
+    const shareBar = document.createElement('div');
+    shareBar.className = 'share-bar';
+    shareBar.innerHTML = `
+      <span>Share This:</span>
+      <a class="share-btn truth" href="https://truthsocial.com/share?text=${title}%20${url}" target="_blank" rel="noopener">Truth Social</a>
+      <a class="share-btn x-twitter" href="https://x.com/intent/tweet?text=${title}&url=${url}" target="_blank" rel="noopener">X</a>
+      <a class="share-btn facebook" href="https://www.facebook.com/sharer/sharer.php?u=${url}" target="_blank" rel="noopener">Facebook</a>
+      <button class="share-btn copy-link" onclick="navigator.clipboard.writeText(window.location.href).then(()=>{this.textContent='Copied!'});setTimeout(()=>{this.textContent='Copy Link'},2000)">Copy Link</button>
+    `;
+    chapterNav.parentNode.insertBefore(shareBar, chapterNav);
+  }
+
 });
