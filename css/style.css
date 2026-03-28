@@ -780,32 +780,38 @@ body.dark-mode .compare-table::after {
 }
 
 .claim-box {
-  background: rgba(178,34,52,0.06);
-  border: 1px solid rgba(178,34,52,0.15);
+  background: linear-gradient(135deg, #7a2030, #9a1520);
+  border: 2px solid var(--gold);
+  color: #f0ede5;
 }
+.claim-box strong { color: #ffffff; }
+.claim-box a { color: #8bc4f6; }
 
 .claim-box::before {
   content: 'THE CLAIM';
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 2px;
-  color: var(--red);
+  color: #f0d060;
   margin-bottom: 0.5rem;
 }
 
-.fact-box {
-  background: rgba(45,138,78,0.06);
-  border: 1px solid rgba(45,138,78,0.15);
+.fact-box, .reality-box {
+  background: linear-gradient(135deg, #1a4a2a, #2a6a3a);
+  border: 2px solid var(--gold);
+  color: #f0ede5;
 }
+.fact-box strong, .reality-box strong { color: #ffffff; }
+.fact-box a, .reality-box a { color: #8bc4f6; }
 
-.fact-box::before {
+.fact-box::before, .reality-box::before {
   content: 'THE FACTS';
   display: block;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 2px;
-  color: #2d8a4e;
+  color: #f0d060;
   margin-bottom: 0.5rem;
 }
 
