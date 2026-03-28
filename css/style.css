@@ -776,10 +776,20 @@ body.dark-mode .compare-table::after {
 }
 
 .claim-box, .fact-box, .reality-box {
-  padding: 1.25rem;
+  padding: 1.5rem;
   border-radius: var(--radius);
+}
+.claim-box p, .fact-box p, .reality-box p {
   text-align: justify;
   text-justify: inter-word;
+}
+.claim-box .label, .fact-box .label, .reality-box .label,
+.claim-box span.label, .fact-box span.label, .reality-box span.label {
+  display: block;
+  text-align: left;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 .claim-box {
