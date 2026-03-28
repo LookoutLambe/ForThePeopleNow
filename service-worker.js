@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ftp-v20';
+const CACHE_NAME = 'ftp-v21';
 
 self.addEventListener('install', e => {
   self.skipWaiting();
