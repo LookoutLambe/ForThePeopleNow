@@ -873,8 +873,8 @@ body.dark-mode .compare-table::after {
 }
 
 .stat-label {
-  font-size: 0.75rem;
-  color: var(--text-light);
+  font-size: 0.8rem;
+  color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-top: 0.3rem;
