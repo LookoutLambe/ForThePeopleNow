@@ -944,25 +944,34 @@ body.dark-mode .compare-table::after {
 /* ============ DIAGRAM: Propaganda Funnel ============ */
 .funnel {
   margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 .funnel-step {
-  padding: 1rem 1.5rem;
+  padding: 1.25rem 1.5rem;
   margin: 0 auto;
-  text-align: center;
-  color: var(--white);
+  text-align: left;
+  color: #ffffff;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: 1rem;
   position: relative;
+  border: 2px solid rgba(255,255,255,0.2);
+  border-bottom: none;
 }
 
-.funnel-step:nth-child(1) { background: var(--navy-light); width: 100%; border-radius: var(--radius) var(--radius) 0 0; }
-.funnel-step:nth-child(2) { background: var(--navy); width: 85%; }
-.funnel-step:nth-child(3) { background: var(--navy-dark); width: 70%; }
-.funnel-step:nth-child(4) { background: var(--red-dark); width: 55%; }
-.funnel-step:nth-child(5) { background: var(--red); width: 40%; border-radius: 0 0 var(--radius) var(--radius); }
+.funnel-step:last-child { border-bottom: 2px solid rgba(255,255,255,0.2); }
 
-.funnel-step small { display: block; font-weight: 400; font-size: 0.75rem; opacity: 0.8; margin-top: 0.2rem; }
+.funnel-step:nth-child(1) { background: #2a4a7a; width: 100%; border-radius: var(--radius) var(--radius) 0 0; }
+.funnel-step:nth-child(2) { background: #1e3a6a; width: 92%; }
+.funnel-step:nth-child(3) { background: #1a2f5a; width: 84%; }
+.funnel-step:nth-child(4) { background: #7a2030; width: 76%; }
+.funnel-step:nth-child(5) { background: #9a1520; width: 68%; border-radius: 0 0 var(--radius) var(--radius); }
+
+.funnel-step strong { color: #f0d060; display: block; font-size: 1.1rem; margin-bottom: 0.3rem; }
+
+.funnel-step small { display: block; font-weight: 400; font-size: 0.9rem; opacity: 1; margin-top: 0.25rem; color: #f0ede5; line-height: 1.4; }
 
 /* ============ DIAGRAM: Historical Comparison ============ */
 .history-compare {
@@ -1169,7 +1178,9 @@ body.dark-mode .toc-num { color: #e8d9a0; }
 
 body.dark-mode .process-step { background: #1a2236; border-color: #3a5080; }
 body.dark-mode .timeline-item { border-color: #3a5080; }
-body.dark-mode .funnel-step { background: linear-gradient(135deg, #1a2236, #222f45); border-color: #3a5080; }
+body.dark-mode .funnel-step { border-color: rgba(255,255,255,0.15); }
+body.dark-mode .funnel-step strong { color: #f0d060; }
+body.dark-mode .funnel-step small { color: #e0dcd0; }
 
 body.dark-mode .chapter-nav a { color: #f0ede5; background: #1a2236; border-color: #3a5080; }
 body.dark-mode .chapter-nav a:hover { border-color: var(--gold); }
