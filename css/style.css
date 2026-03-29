@@ -49,7 +49,7 @@ h3 { font-size: 1.35rem; margin: 2.5rem 0 1rem; color: var(--navy-light); }
 h4 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
 
 p { margin-bottom: 1.25rem; text-align: left;  line-height: 1.75; }
-a { color: var(--navy-light); text-decoration: none; transition: color var(--transition); }
+a { color: #1a6bb5; text-decoration: underline; transition: color var(--transition); }
 a:hover { color: var(--red); }
 strong { color: var(--navy); }
 blockquote {
