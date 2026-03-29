@@ -1,4 +1,4 @@
-const CACHE_NAME = 'ftp-v21';
+const CACHE_NAME = 'ftp-v22';
 
 self.addEventListener('install', e => {
   self.skipWaiting();
@@ -23,6 +23,12 @@ self.addEventListener('fetch', e => {
         caches.open(CACHE_NAME).then(c => c.put(e.request, clone));
       }
       return resp;
-    }).catch(() => caches.match(e.request).then(cached => cached || caches.match('index.html')))
+    }).catch(() => {
+      // Only fall back to index.html for page navigation, not images/resources
+      if (e.request.mode === 'navigate') {
+        return caches.match('index.html');
+      }
+      return caches.match(e.request);
+    })
   );
 });
