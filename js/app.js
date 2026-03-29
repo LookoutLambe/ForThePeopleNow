@@ -150,22 +150,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const isSubpage = window.location.pathname !== '/' && !window.location.pathname.endsWith('index.html');
 
+  // Find next chapter link for forward button
+  const nextLink = document.querySelector('.chapter-nav a.next');
+  const prevChLink = document.querySelector('.chapter-nav a:not(.next)');
+
   toolbar.innerHTML = `
-    ${isSubpage ? '<button class="tb-btn tb-back" title="Go back">&#9664;</button>' : ''}
+    ${prevChLink ? '<button class="tb-btn tb-back" title="Previous chapter">&#9664;</button>' : ''}
     <button class="tb-btn tb-font-down" title="Decrease font">A-</button>
     <button class="tb-btn tb-font-reset" title="Reset font">A</button>
     <button class="tb-btn tb-font-up" title="Increase font">A+</button>
     <button class="tb-btn tb-dark" title="Toggle dark mode">&#9789;</button>
     <button class="tb-btn tb-top" title="Back to top">&#9650;</button>
+    ${nextLink ? '<button class="tb-btn tb-forward" title="Next chapter">&#9654;</button>' : ''}
   `;
   document.body.appendChild(toolbar);
 
-  // Back button
+  // Back button (previous chapter)
   const tbBack = toolbar.querySelector('.tb-back');
-  if (tbBack) {
+  if (tbBack && prevChLink) {
     tbBack.addEventListener('click', () => {
-      if (window.history.length > 1) window.history.back();
-      else window.location.href = 'index.html';
+      window.location.href = prevChLink.href;
+    });
+  }
+
+  // Forward button (next chapter)
+  const tbForward = toolbar.querySelector('.tb-forward');
+  if (tbForward && nextLink) {
+    tbForward.addEventListener('click', () => {
+      window.location.href = nextLink.href;
     });
   }
 
