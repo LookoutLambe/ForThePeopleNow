@@ -779,18 +779,20 @@ body.dark-mode .compare-table::after {
 .compare-table th {
   background: var(--navy);
   color: var(--white);
-  padding: 0.75rem 1rem;
+  padding: 1rem 1.25rem;
   text-align: left;
   font-weight: 600;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .compare-table td {
-  padding: 0.75rem 1rem;
+  padding: 1rem 1.25rem;
   border-bottom: 1px solid var(--border);
   vertical-align: top;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .compare-table tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
@@ -940,7 +942,7 @@ body.dark-mode .compare-table::after {
 
 .stat-box {
   text-align: center;
-  padding: 1.25rem;
+  padding: 1.5rem;
   background: linear-gradient(135deg, #1e3a6a, #2a4a7a);
   border: 2px solid var(--gold);
   border-radius: var(--radius);
@@ -949,18 +951,19 @@ body.dark-mode .compare-table::after {
 
 .stat-num {
   font-family: var(--font-serif);
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 700;
   color: #f0d060;
   line-height: 1;
 }
 
 .stat-label {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-top: 0.3rem;
+  margin-top: 0.5rem;
+  line-height: 1.4;
 }
 
 /* Warning/Alert box */
