@@ -260,6 +260,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
+  // ---- PDF viewer overlay (keeps user on site) ----
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href*="docs/"]');
+    if (link && link.href.endsWith('.pdf')) {
+      e.preventDefault();
+      e.stopPropagation();
+      const overlay = document.createElement('div');
+      overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.85);z-index:10000;display:flex;flex-direction:column;';
+      overlay.innerHTML = `
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:0.75rem 1.5rem;background:#1a2744;border-bottom:2px solid #c9a94e;">
+          <span style="color:#c9a94e;font-weight:700;font-size:0.9rem;">📄 ${link.href.split('/').pop().replace('.pdf','')}</span>
+          <button style="background:#b22234;color:#fff;border:none;padding:0.5rem 1.25rem;border-radius:4px;font-weight:700;cursor:pointer;font-size:0.9rem;" onclick="this.closest('div').parentElement.remove()">✕ CLOSE</button>
+        </div>
+        <iframe src="${link.href}" style="flex:1;border:none;width:100%;"></iframe>
+      `;
+      document.body.appendChild(overlay);
+    }
+  });
+
   // ---- Share buttons (fixed floating bar) ----
   const shareTarget = document.querySelector('.article-content') || document.querySelector('main');
   if (shareTarget) {
