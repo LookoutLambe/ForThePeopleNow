@@ -65,6 +65,8 @@ blockquote {
   
   border-radius: var(--radius);
 }
+blockquote a { color: #8bc4f6; text-decoration: underline; }
+blockquote a:hover { color: #f0d060; }
 ul, ol { margin: 0.75rem 0 1.25rem 1.5rem; }
 li { margin-bottom: 0.4rem; text-align: left;  }
 
