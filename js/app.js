@@ -222,7 +222,43 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.removeItem('ftp-fontsize');
   });
 
-  // Swipe navigation removed - was blocking text selection on mobile
+  // ---- Swipe navigation (edge-only, doesn't block text selection) ----
+  const chapterNavEl = document.querySelector('.chapter-nav');
+  if (chapterNavEl) {
+    const prevLink = chapterNavEl.querySelector('a:not(.next)');
+    const nextLink = chapterNavEl.querySelector('a.next');
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchStartTime = 0;
+
+    document.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+      touchStartTime = Date.now();
+    }, { passive: true });
+
+    document.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      const touchEndY = e.changedTouches[0].clientY;
+      const diffX = touchEndX - touchStartX;
+      const diffY = touchEndY - touchStartY;
+      const elapsed = Date.now() - touchStartTime;
+
+      // Only trigger on fast, horizontal swipes (not scrolling or text selection)
+      // Must be: >100px horizontal, <50px vertical, <300ms, started near edge
+      const edgeZone = 40;
+      const isFromLeftEdge = touchStartX < edgeZone;
+      const isFromRightEdge = touchStartX > window.innerWidth - edgeZone;
+
+      if (Math.abs(diffX) > 100 && Math.abs(diffY) < 50 && elapsed < 300) {
+        if (diffX > 0 && isFromLeftEdge && prevLink) {
+          window.location.href = prevLink.href;
+        } else if (diffX < 0 && isFromRightEdge && nextLink) {
+          window.location.href = nextLink.href;
+        }
+      }
+    }, { passive: true });
+  }
 
   // ---- Share buttons (fixed floating bar) ----
   const shareTarget = document.querySelector('.article-content') || document.querySelector('main');
