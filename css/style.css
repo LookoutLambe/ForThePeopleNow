@@ -1276,6 +1276,20 @@ body.dark-mode .toc-title { color: #f0ede5; }
 body.dark-mode .toc-desc { color: #c8c4bc; }
 body.dark-mode .toc-num { color: #e8d9a0; }
 
+.toc-part {
+  background: linear-gradient(135deg, #1a2744, #2a3f66);
+  color: var(--gold);
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 0.75rem 1.25rem;
+  margin: 1.5rem 0 0.5rem;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--gold);
+  text-align: left;
+}
+
 body.dark-mode .process-step { background: #1a2236; border-color: #3a5080; }
 body.dark-mode .timeline-item { border-color: #3a5080; }
 body.dark-mode .funnel-step { border-color: rgba(255,255,255,0.15); }
