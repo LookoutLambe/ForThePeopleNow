@@ -5,7 +5,7 @@
 
 /* Reset & Base */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { max-width: 100%; overflow-x: hidden; }
+body { max-width: 100%; }
 
 :root {
   --navy: #1a2744;
@@ -616,8 +616,12 @@ body.dark-mode .share-bar { background: linear-gradient(135deg, #0a1020, #1a2744
 
   /* Tighter horizontal padding — gives more reading width */
   .content-wrap { padding: 1.25rem 1rem 3rem; }
-  .article-content { overflow-x: hidden; }
   img { max-width: 100%; height: auto; }
+  /* Tables must scroll horizontally — never clip them */
+  .compare-table { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+  .compare-table table { min-width: 500px; }
+  /* Everything else that might overflow gets clipped */
+  .key-point, .alert-box, .source-box, .fact-check, .stat-grid, .card-grid { max-width: 100%; overflow: hidden; }
   blockquote { padding: 1.25rem 1rem; }
   .key-point { padding: 1.25rem 1rem; }
   .alert-box { padding: 1rem; }
