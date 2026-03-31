@@ -608,6 +608,52 @@ body.dark-mode .share-bar { background: linear-gradient(135deg, #0a1020, #1a2744
   .header-top { padding: 0.5rem 1rem; }
   .site-title { font-size: 1.1rem; }
   .hero h1 { font-size: 1.6rem; }
+
+  /* Larger body text for arm's-length phone reading */
+  html { font-size: 18px; }
+  p, li, td, dd { font-size: 1rem; line-height: 1.8; }
+
+  /* Tighter horizontal padding — gives more reading width */
+  .content-wrap { padding: 1.25rem 1rem 3rem; }
+  blockquote { padding: 1.25rem 1rem; }
+  .key-point { padding: 1.25rem 1rem; }
+  .alert-box { padding: 1rem; }
+  .source-box { padding: 1rem; }
+  .source-box li { font-size: 0.95rem; }
+
+  /* Headings — tighter margins save vertical space */
+  h2 { font-size: 1.35rem; margin: 2rem 0 1rem; }
+  h3 { font-size: 1.15rem; margin: 1.75rem 0 0.75rem; }
+
+  /* Stats: single column on small phones */
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+  .stat-box { padding: 1rem; }
+  .stat-num { font-size: 2rem; }
+
+  /* Doc links: bigger tap targets */
+  .doc-link { padding: 1rem; min-height: 56px; }
+  .doc-link .name { font-size: 1rem; }
+  .doc-link .type { font-size: 0.85rem; }
+
+  /* Tables: show swipe hint */
+  .compare-table { position: relative; }
+  .compare-table::after {
+    content: '← swipe to scroll →';
+    display: block;
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--gold);
+    padding: 0.4rem 0;
+    opacity: 0.8;
+  }
+  table { font-size: 0.9rem; }
+  th, td { padding: 0.6rem 0.75rem; }
+
+  /* Process flow steps */
+  .process-step { padding: 1rem; }
+
+  /* Chapter nav — full width buttons */
+  .chapter-nav a { padding: 0.9rem 0.75rem; font-size: 0.9rem; }
 }
 
 /* ============ PRINT ============ */
