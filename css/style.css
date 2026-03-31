@@ -15,6 +15,7 @@ body { max-width: 100%; }
   --red-dark: #8b1a28;
   --gold: #c9a94e;
   --gold-light: #e0c76a;
+  --gold-dim: rgba(201,169,78,0.4);
   --white: #ffffff;
   --off-white: #f5f3ee;
   --text: #2c2c2c;
